@@ -7,10 +7,10 @@
   "packageManager": "pnpm@10.23.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luojiahai/idle-theme-vscode.git"
+    "url": "https://github.com/idlegram/idle-theme-vscode.git"
   },
   "bugs": {
-    "url": "https://github.com/luojiahai/idle-theme-vscode/issues"
+    "url": "https://github.com/idlegram/idle-theme-vscode/issues"
   },
   "keywords": [
     "theme",
@@ -26,8 +26,10 @@
   "exports": {
     "./*": "./*"
   },
+  "icon": "icon.png",
   "files": [
     "LICENSE",
+    "icon.png",
     "themes/*"
   ],
   "contributes": {
