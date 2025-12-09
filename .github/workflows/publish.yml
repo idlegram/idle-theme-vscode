@@ -1,0 +1,41 @@
+name: publish vscode extension
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    permissions:
+      id-token: write
+      contents: write
+      actions: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: set node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: install dependencies
+        run: pnpm install
+
+      - name: generate .vsix file
+        run: pnpm package
+
+      - name: publish extension
+        run: npx vsxpub --no-dependencies
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VSCE_PAT: ${{secrets.VSCE_PAT}}
+          OVSX_PAT: ${{secrets.OVSX_PAT}}

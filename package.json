@@ -1,0 +1,68 @@
+{
+  "publisher": "luojiahai",
+  "name": "idle-theme",
+  "displayName": "Idle Theme",
+  "description": "Idle theme for VSCode",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.23.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luojiahai/idle-theme-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luojiahai/idle-theme-vscode/issues"
+  },
+  "keywords": [
+    "theme",
+    "dark",
+    "light"
+  ],
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "exports": {
+    "./*": "./*"
+  },
+  "files": [
+    "LICENSE",
+    "themes/*"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Idle Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/idle-dark-color-theme.json"
+      },
+      {
+        "label": "Idle Light",
+        "uiTheme": "vs",
+        "path": "./themes/idle-light-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsx scripts/index.ts",
+    "dev": "tsx watch scripts/index.ts",
+    "vscode:prepublish": "npm run build",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/color": "^4.2.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.10.1",
+    "@vscode/vsce": "^3.7.1",
+    "color": "^5.0.3",
+    "eslint": "^9.39.1",
+    "fs-extra": "^11.3.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0"
+  },
+  "preview": true
+}
